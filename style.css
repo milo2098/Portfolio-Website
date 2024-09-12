@@ -1,6 +1,11 @@
-* {
-    background-color:antiquewhite;
+body {
+    background-color: antiquewhite;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body.dark-mode {
+    background-color: midnightblue;
+    color: bisque;
 }
 
 html, body {
@@ -16,17 +21,23 @@ header {
     align-items: center;
     justify-content: space-between;
     height: 70px;
-    color: cornsilk;
     position: fixed;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid;
     z-index: 1000;
+}
+
+header.dark-mode {
+    border-bottom: 3px solid bisque;
 }
 
 #title {
     display: inline;
     border-radius: 5px;
     padding: 5px;
-    color:black;
+}
+
+#title.dark-mode {
+    color: bisque;
 }
 
 #nav-bar {
@@ -48,7 +59,6 @@ header {
     text-align: center;
     color: black;
 }
-
 
 #nav-bar a:hover {
     width: 100px;
@@ -74,10 +84,26 @@ footer {
     width: 100%;
     padding: 10px;
     display: block;
+    z-index: 1000;
+    background-color: antiquewhite;
+    border-top: solid 3px black;
 }
+
+body.dark-mode footer{
+    background-color: midnightblue;
+    border-top: solid 3px bisque;
+}
+
+
 #skills-images img {
     height: 80px;
     margin-right: 10px;
+    padding: 10px;
+}
+
+body.dark-mode #skills-images img {
+    background-color: bisque;
+    border-radius: 5px;
 }
 
 main a {
@@ -85,11 +111,16 @@ main a {
     text-decoration: none;
     color: black;
 }
+
+body.dark-mode main a {
+    color: bisque;
+}
+
 main a:hover {
     text-decoration: underline;
 }
 
-#project-links a{
+#project-links a {
     list-style: decimal;
 }
 
@@ -100,10 +131,27 @@ footer a {
     margin-left: 10px;
 }
 
+body.dark-mode footer a {
+    color: antiquewhite;
+}
+
 footer a:hover {
     text-decoration: underline;
 }
 
 #contact {
     display: inline;
+}
+
+#night-mode-toggle {
+    float: right;
+    border-radius: 5px;
+    margin-right: 20px;
+    padding: 5px;
+    font-weight: bold;
+    background-color: white;
+    position: fixed;
+    bottom: 5px;
+    right: 10px;
+    z-index: 1001;
 }
