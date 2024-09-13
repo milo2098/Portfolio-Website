@@ -1,6 +1,8 @@
 body {
     background-color: antiquewhite;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 body.dark-mode {
@@ -8,32 +10,31 @@ body.dark-mode {
     color: bisque;
 }
 
-html, body {
-    padding: 0;
-    margin: 0;
-}
-
+/* Header Section */
 header {
-    overflow: hidden;
-    width: 100%;
-    margin: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
     position: fixed;
-    border-bottom: 3px solid;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    left: 0;
+    background-color: antiquewhite;
+    border-bottom: 3px solid black;
     z-index: 1000;
+    font-weight: bold;
 }
 
-header.dark-mode {
+body.dark-mode header {
+    background-color: midnightblue;
     border-bottom: 3px solid bisque;
 }
 
 #title {
-    display: inline;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 1.5em;
+    padding: 10apx;
+
 }
 
 #title.dark-mode {
@@ -41,63 +42,95 @@ header.dark-mode {
 }
 
 #nav-bar {
-    margin-right: 10px;
-    display: inline-flex;
-    float: right;
-    width: 400px;
-    justify-content: space-between;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
 }
 
 #nav-bar a {
-    border-radius: 5px;
-    padding: 5px;
-    display: inline-flex;
-    width: 80px;
-    justify-content: center;
+    padding: 10px 15px;
     background-color: white;
-    text-decoration: none;
-    text-align: center;
     color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: solid 2px black;
 }
 
 #nav-bar a:hover {
-    width: 100px;
-    font-weight: bold;
+    background-color: lightgray;
     border: 1px solid black;
 }
 
+/* Responsive header for smaller screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        height: auto;
+        position: relative;
+
+    }
+    #nav-bar {
+        width: auto;
+        padding: 0;
+        align-items: center;
+    }
+    #nav-bar a {
+        width: auto;
+        padding: 15px 0;
+        text-align: left;
+        padding: 5px;
+    }
+}
+
+/* Main Section */
 main {
     padding-top: 80px;
     padding-left: 10px;
-    display: block;
+    padding-right: 10px;
+
 }
 
+@media (max-width: 768px) {
+    main {
+        padding-top: 5px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+/* Headshot Image */
 #headshot {
-    width: 500px;
-    float: right;
-    display: inline;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    padding: 10px;
-    display: block;
-    z-index: 1000;
-    background-color: antiquewhite;
-    border-top: solid 3px black;
+    max-width: 500px;
+    height: auto;
+    float: right;
+    margin-left: 10px;
 }
 
-body.dark-mode footer{
-    background-color: midnightblue;
-    border-top: solid 3px bisque;
+/* Make headshot responsive */
+@media (max-width: 768px) {
+    #headshot {
+        float: none;
+        width: 100%;
+        margin: 20px 0;
+    }
 }
 
+/* Skills Section */
+#skills-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 
 #skills-images img {
-    height: 80px;
-    margin-right: 10px;
+    width: 100%;
+    max-width: 80px;
+    height: auto;
     padding: 10px;
 }
 
@@ -106,29 +139,30 @@ body.dark-mode #skills-images img {
     border-radius: 5px;
 }
 
-main a {
-    font-weight: bold;
-    text-decoration: none;
-    color: black;
+/* Footer Section */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-top: 3px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
 }
 
-body.dark-mode main a {
-    color: bisque;
-}
-
-main a:hover {
-    text-decoration: underline;
-}
-
-#project-links a {
-    list-style: decimal;
+body.dark-mode footer {
+    background-color: midnightblue;
+    border-top: 3px solid bisque;
 }
 
 footer a {
+    margin-left: 10px;
     font-weight: bold;
     text-decoration: none;
     color: black;
-    margin-left: 10px;
 }
 
 body.dark-mode footer a {
@@ -139,19 +173,42 @@ footer a:hover {
     text-decoration: underline;
 }
 
-#contact {
-    display: inline;
+/* Responsive footer */
+@media (max-width: 768px) {
+    footer {
+        gap: 10px;
+        position: relative;
+        margin-top: 5px;
+    }
 }
 
+/* Night Mode Toggle Button */
 #night-mode-toggle {
-    float: right;
-    border-radius: 5px;
-    margin-right: 20px;
-    padding: 5px;
-    font-weight: bold;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
     background-color: white;
-    position: fixed;
-    bottom: 5px;
-    right: 10px;
+    border-radius: 5px;
+    font-weight: bold;
     z-index: 1001;
+}
+
+#night-mode-toggle:hover {
+    background-color: lightgray;
+    font-weight:900;
+}
+
+/* General Links */
+main a, footer a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+main a:hover, footer a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode main a {
+    color: bisque;
 }
